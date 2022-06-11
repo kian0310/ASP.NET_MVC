@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication3.Models.PersonData>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    Person_List
+    <br/><br/>
+
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PersonSex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.PersonMobilePhone)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonSex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonMobilePhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

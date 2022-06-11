@@ -1,0 +1,42 @@
+﻿@model WebApplication3.Models.Class1
+@*↑寫法1
+     ↓寫法2*@
+@* using WebApplication3.Models;
+@model Class1 *@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    <div>
+        <h1>Class1</h1>
+        <h2>Class1</h2>
+        <h3>Class1</h3>
+        <h4>Class1</h4>
+        <h5>Class1</h5>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(m => m.UserName) @* => : goto*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(m => m.UserName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

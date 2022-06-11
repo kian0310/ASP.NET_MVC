@@ -1,0 +1,52 @@
+﻿@model WebApplication3.Models.PersonData
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>PersonData</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <!--DisplayNameFor: 屬性的名稱-->
+                @Html.DisplayNameFor(m => m.PersonName)
+            </dt>
+    
+            <dd>
+                <!--DisplayFor: 屬性的值-->
+                @Html.DisplayFor(m => m.PersonName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(m => m.PersonSex)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(m => m.PersonSex)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(m => m.PersonMobilePhone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(m => m.PersonMobilePhone)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApplication3.Models.Class1>
+
+@*
+    // 檢視畫面上的第一列（model）與 Model，有何不同？？
+    // @model is "a property of the view" that refers to the model that was passed to the view from the controller.
+    // This property is strongly typed based on the data type specified in the @model directive at the top of the view.
+    // ***  @model occurs "only once" and specifies the "data type" of the model.
+    // ***  Model allows you to reference "the value for the model" passed to the view.
+
+    // 文章說明：When To Use IEnumerable, ICollection, IList And List (文章後面有一張圖)
+    // http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/
+
+    // IEnumerable -- only 使用於「read」data 展示.
+    // ICollection -- 你想修改集合 or 關心其大小 (size).
+    // IList -- 你想修改集合，並關心集合中元素的排序和/或location.
+*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index5 - First搭配Class file #2</title>
+</head>
+<body>
+
+    Index5 - First搭配Class file #2 (/Models/Class1.cs file)
+    <br/><br/>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+    <table class="table" border="1">
+        <tr>
+            @*Table title - 第1行.第1列*@
+            <th>
+                <!--註解：title 欄位. 也就是 Class1 的「屬性名稱」-->
+                <!--↓為了避免造成混淆，你可以將這裡的 model 改成 m or x 皆可.-->
+                @Html.DisplayNameFor(m => m.UserName)
+            </th>
+
+            @*Table title - 第2行.第1列*@
+            <!--<th></th>-->
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*Table 第1行.第2列起的內容*@
+                <td>
+                    <!-- 註解：content 欄位。也就是 Class1內，屬性的「值」 -->
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                @*Table 第2行.第2列起的內容*@
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
